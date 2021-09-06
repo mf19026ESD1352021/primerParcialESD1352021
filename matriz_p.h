@@ -16,7 +16,7 @@
 #define M1 130
 #define M2 60
 char **Leer_archivo(char *nombre);
-int matrizNu(char *pa);
+int *matrizNu(char *pa);
 int *trans(int *matriz,int filas,int columnas);
 const char* integrantes();
 int *multi(int *matriz,int f1,int c1,int *matriz2,int f2,int c2);

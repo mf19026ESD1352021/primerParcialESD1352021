@@ -29,7 +29,7 @@ char **Leer_archivo(char *nombre) {
 
 
 }
-  int matrizNu(char *pa) {
+  int *matrizNu(char *pa) {
 
     char *peliculas;
     int cont = 0;
@@ -85,19 +85,20 @@ char **Leer_archivo(char *nombre) {
         }
     }
     
-     matrizi[cont-2][conto];
-    for (int i = 0; i < (cont-1); i++) {
+    int *p=(int *)malloc((cont-2)*(conto)*sizeof(int));
+    for (int i = 0; i < (cont-2); i++) {
         for (int j = 0; j < (conto); j++) {
             int numero = 0;
             numero = (int) matrizn[i][j];
             if (numero == 48) {
-                matrizi[i][j]=0;
+                *(p+i*6+j)=0;
             } else
-                matrizi[i][j]=1;
+                *(p+i*6+j)=1;
         }
     }
     puts("");
 
+/*
     for (int i = 0; i < (cont-2); i++) {
         for (int j = 0; j < conto; j++) {
             printf("%i\t",matrizi[i][j]);
@@ -105,10 +106,11 @@ char **Leer_archivo(char *nombre) {
         }
         printf("\n");
     }
+*/
 
 
     fclose(f); 
-    return (sizeof(matrizi)/sizeof(int));
+    return p;
 
 }
   int *trans(int *matriz,int filas,int columnas){

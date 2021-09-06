@@ -50,9 +50,9 @@ TESTFILES= \
 
 # Test Object Files
 TESTOBJECTFILES= \
+	${TESTDIR}/tests/matriz_int.o \
 	${TESTDIR}/tests/multi.o \
 	${TESTDIR}/tests/newcunittest.o \
-	${TESTDIR}/tests/newcunittest1.o \
 	${TESTDIR}/tests/transpuesta.o
 
 # C Compiler Flags
@@ -100,7 +100,7 @@ ${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/newcunittest.o ${OBJECTFILES:%.o=%_nom
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.c} -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS}   -lcunit 
 
-${TESTDIR}/TestFiles/f2: ${TESTDIR}/tests/newcunittest1.o ${OBJECTFILES:%.o=%_nomain.o}
+${TESTDIR}/TestFiles/f2: ${TESTDIR}/tests/matriz_int.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.c} -o ${TESTDIR}/TestFiles/f2 $^ ${LDLIBSOPTIONS}   -lcunit 
 
@@ -119,10 +119,10 @@ ${TESTDIR}/tests/newcunittest.o: tests/newcunittest.c
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/newcunittest.o tests/newcunittest.c
 
 
-${TESTDIR}/tests/newcunittest1.o: tests/newcunittest1.c 
+${TESTDIR}/tests/matriz_int.o: tests/matriz_int.c 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/newcunittest1.o tests/newcunittest1.c
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/matriz_int.o tests/matriz_int.c
 
 
 ${TESTDIR}/tests/multi.o: tests/multi.c 

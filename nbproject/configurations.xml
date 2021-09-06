@@ -27,10 +27,10 @@
         <itemPath>tests/newcunittest.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2"
-                     displayName="tes_matriz_int"
+                     displayName="test_matriz"
                      projectFiles="true"
                      kind="TEST">
-        <itemPath>tests/newcunittest1.c</itemPath>
+        <itemPath>tests/matriz_int.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f4"
                      displayName="test_multi"
@@ -100,11 +100,11 @@
       </item>
       <item path="matriz_p.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="tests/matriz_int.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="tests/multi.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="tests/newcunittest.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="tests/newcunittest1.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="tests/transpuesta.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -167,11 +167,11 @@
       </item>
       <item path="matriz_p.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="tests/matriz_int.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="tests/multi.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="tests/newcunittest.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="tests/newcunittest1.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="tests/transpuesta.c" ex="false" tool="0" flavor2="0">
       </item>
