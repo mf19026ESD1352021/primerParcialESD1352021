@@ -26,7 +26,6 @@ void testTrans() {
     int numeros[3][4]={1,2,3,4,5,6,7,8,9,10,11,12};
     int filas=3;
     int columnas=4;
-    int sizeor=sizeof(numeros)/sizeof(int);
     int* result = trans(&numeros, filas, columnas);
    
         CU_ASSERT(*(result+0*filas+2)==9);
