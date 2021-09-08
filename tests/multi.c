@@ -31,7 +31,12 @@ void testMulti() {
     int c2=3;
     int* result = multi(numeros, f1, c1, numeros2, f2, c2);
     CU_ASSERT_PTR_NOT_NULL(result);
-    CU_ASSERT(*(result+0*f2+0)==44);
+    CU_ASSERT(*(result+0*3+0)==44);
+    CU_ASSERT(*(result+0*3+1)==-26);
+     CU_ASSERT(*(result+0*3+2)==21);
+     CU_ASSERT(*(result+1*3+0)==92);
+     CU_ASSERT(*(result+1*3+1)==-26);
+     CU_ASSERT(*(result+2*3+0)==140);
 }
 
 int main() {

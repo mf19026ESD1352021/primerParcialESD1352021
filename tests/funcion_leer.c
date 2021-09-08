@@ -1,8 +1,8 @@
 /*
- * File:   matriz_int.c
+ * File:   funcion_leer.c
  * Author: carlos
  *
- * Created on 6 sep. 2021, 16:42:07
+ * Created on 8 sep. 2021, 11:26:56
  */
 
 #include <stdio.h>
@@ -22,19 +22,19 @@ int clean_suite(void) {
     return 0;
 }
 
-void testMatrizNu() {
-    char pa[]="Peliculas2.csv";
-    char p2[]="Peliculas2s.csv";
-    int* result = matrizNu(pa);
+void testLeer_archivo() {
+    char* path="Peliculas2.csv";
+    char* path2="Peliculas2S.csv";
+    modificacion* result = Leer_archivo(path);
     CU_ASSERT_PTR_NOT_NULL(result);
-    CU_ASSERT(*result==0);
-    CU_ASSERT(*(result+0*6+1)==1);
-    CU_ASSERT(*(result+0*+6+5)==0);
-    CU_ASSERT(*(result+58*6+0)==1);
-    CU_ASSERT(*(result+58*6+5)==0);
-    int* resulta = matrizNu(p2);
-    CU_ASSERT_PTR_NULL(resulta);
-     CU_ASSERT_TRUE(resulta==0);
+    CU_ASSERT_STRING_EQUAL(*(result+1*7+0),"ph20003");
+    CU_ASSERT_STRING_EQUAL(*(result+59*7+0),"bc18029");
+    CU_ASSERT_STRING_EQUAL(*(result+1*7+6),"0\n");
+   CU_ASSERT_STRING_EQUAL(*(result+14*7+6),"1\n");
+   CU_ASSERT_STRING_EQUAL(*(result+18*7+0),"rc19102");
+   modificacion* resulta = Leer_archivo(path2);
+   CU_ASSERT_TRUE(resulta==NULL);
+     
 }
 
 int main() {
@@ -45,14 +45,14 @@ int main() {
         return CU_get_error();
 
     /* Add a suite to the registry */
-    pSuite = CU_add_suite("matriz_int", init_suite, clean_suite);
+    pSuite = CU_add_suite("funcion_leer", init_suite, clean_suite);
     if (NULL == pSuite) {
         CU_cleanup_registry();
         return CU_get_error();
     }
 
     /* Add the tests to the suite */
-    if ((NULL == CU_add_test(pSuite, "testMatrizNu", testMatrizNu))) {
+    if ((NULL == CU_add_test(pSuite, "testLeer_archivo", testLeer_archivo))) {
         CU_cleanup_registry();
         return CU_get_error();
     }

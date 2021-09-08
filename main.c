@@ -9,7 +9,9 @@
 
 
 int main(void) {
+    ///Codigo de prueba no es necesario utilizarlo
    
+/*
  char path[] = "Peliculas2.csv";
     int *result;
     puts("");
@@ -76,6 +78,7 @@ for (int i = 0; i < 59; i++) {
 const char* p = integrantes();
     
     printf("%s", p);
+*/
     return 0;
 }
 

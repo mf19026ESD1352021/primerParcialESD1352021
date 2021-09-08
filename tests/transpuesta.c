@@ -30,6 +30,8 @@ void testTrans() {
    
         CU_ASSERT(*(result+0*filas+2)==9);
         CU_ASSERT_PTR_NOT_NULL(result);
+        CU_ASSERT(*(result+3*filas+0)==4);
+        CU_ASSERT(*(result+2*filas+2)==11);
 }
 
 int main() {

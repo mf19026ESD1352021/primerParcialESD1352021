@@ -10,7 +10,7 @@ char *Leer_archivo(char *nombre) {
    
     if (fpdo == NULL) {
         printf("No hay nada en %s\n", nombre);
-        return 0;
+        return NULL;
         exit(1);
     }
     int columnas=0;
@@ -137,7 +137,6 @@ char *Leer_archivo(char *nombre) {
 }
 
 const char* integrantes() {
-  
     const char * integrante[]={"MF19026,RC19102"};
     return *integrante;
 }

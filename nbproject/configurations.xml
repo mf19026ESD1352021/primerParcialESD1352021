@@ -20,6 +20,12 @@
                    displayName="Test Files"
                    projectFiles="false"
                    kind="TEST_LOGICAL_FOLDER">
+      <logicalFolder name="f1"
+                     displayName="leer_prueba"
+                     projectFiles="true"
+                     kind="TEST">
+        <itemPath>tests/funcion_leer.c</itemPath>
+      </logicalFolder>
       <logicalFolder name="f2"
                      displayName="test_matriz"
                      projectFiles="true"
@@ -56,6 +62,14 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <folder path="TestFiles/f1">
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+          <linkerLibItems>
+            <linkerOptionItem>-lcunit</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
       <folder path="TestFiles/f2">
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f2</output>
@@ -85,6 +99,8 @@
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="matriz_p.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/funcion_leer.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="tests/matriz_int.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -113,6 +129,14 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <folder path="TestFiles/f1">
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+          <linkerLibItems>
+            <linkerOptionItem>-lcunit</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
       <folder path="TestFiles/f2">
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f2</output>
@@ -142,6 +166,8 @@
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="matriz_p.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/funcion_leer.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="tests/matriz_int.c" ex="false" tool="0" flavor2="0">
       </item>
