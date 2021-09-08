@@ -29,7 +29,7 @@ void testMulti() {
     int numeros2[4][3] = {-3, 8, 4, 4, 1, 1, 5, 0, -3, 6, -9, 6};;
     int f2=4;
     int c2=3;
-    int* result = multi(numeros, f1, c1, numeros2, f2, c2);
+    int* result = multi(&numeros, f1, c1, &numeros2, f2, c2);
     CU_ASSERT_PTR_NOT_NULL(result);
     CU_ASSERT(*(result+0*3+0)==44);
     CU_ASSERT(*(result+0*3+1)==-26);

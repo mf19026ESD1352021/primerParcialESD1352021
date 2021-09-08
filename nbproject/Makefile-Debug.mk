@@ -56,7 +56,7 @@ TESTOBJECTFILES= \
 	${TESTDIR}/tests/transpuesta.o
 
 # C Compiler Flags
-CFLAGS=
+CFLAGS=-fprofile-arcs -ftest-coverage
 
 # CC Compiler Flags
 CCFLAGS=
