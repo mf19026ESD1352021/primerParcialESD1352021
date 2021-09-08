@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include<string.h>
 #include "matriz_p.h"
-int matrizi[59][6];
+
 
 char **Leer_archivo(char *nombre) {
     char line[M1][M2];
@@ -20,7 +20,7 @@ char **Leer_archivo(char *nombre) {
         k++;
     }
     no = k;
-    printf("\ %s tiene este contenido:\n", nombre);
+    printf(" %s tiene este contenido:\n", nombre);
     for (k = 0; k < no; k++) {
         printf("%s\n", line[k]);
     }
@@ -31,11 +31,12 @@ char **Leer_archivo(char *nombre) {
 }
   int *matrizNu(char *pa) {
 
-    char *peliculas;
+    
     int cont = 0;
     int conto = 0;
     char temp[100];
     char aux;
+    char *numeroc;
     FILE *f;
     f = fopen(pa, "r");
     if (f == NULL) {
@@ -62,22 +63,20 @@ char **Leer_archivo(char *nombre) {
         }
 
     }
-  
-    char matrizn[cont-2][conto];
-    for (int i = 0; i < (cont-2); i++) {
+ 
+    int *p=(int *)malloc((cont-1)*(conto)*sizeof(int));
+    for (int i = 0; i < (cont-1); i++) {
         int j = 0;
         while (aux != ',') {
             aux = fgetc(f);
-            /*
-                        printf("%c",aux);
-             */
+          
         }
-
 
         while (aux != '\n' && aux != EOF) {
             aux = fgetc(f);
             if (aux != ',' && aux != EOF && aux != '\n') {
-                matrizn[i][j] = aux;
+                numeroc=&aux;
+                *(p+i*conto+j) = atoi(numeroc);
                 j++;
             }
 
@@ -85,29 +84,9 @@ char **Leer_archivo(char *nombre) {
         }
     }
     
-    int *p=(int *)malloc((cont-2)*(conto)*sizeof(int));
-    for (int i = 0; i < (cont-2); i++) {
-        for (int j = 0; j < (conto); j++) {
-            int numero = 0;
-            numero = (int) matrizn[i][j];
-            if (numero == 48) {
-                *(p+i*6+j)=0;
-            } else
-                *(p+i*6+j)=1;
-        }
-    }
+    
+
     puts("");
-
-/*
-    for (int i = 0; i < (cont-2); i++) {
-        for (int j = 0; j < conto; j++) {
-            printf("%i\t",matrizi[i][j]);
-            
-        }
-        printf("\n");
-    }
-*/
-
 
     fclose(f); 
     return p;

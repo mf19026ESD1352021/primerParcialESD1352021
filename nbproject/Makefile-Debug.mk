@@ -43,7 +43,6 @@ TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
 
 # Test Files
 TESTFILES= \
-	${TESTDIR}/TestFiles/f1 \
 	${TESTDIR}/TestFiles/f2 \
 	${TESTDIR}/TestFiles/f4 \
 	${TESTDIR}/TestFiles/f3
@@ -52,7 +51,6 @@ TESTFILES= \
 TESTOBJECTFILES= \
 	${TESTDIR}/tests/matriz_int.o \
 	${TESTDIR}/tests/multi.o \
-	${TESTDIR}/tests/newcunittest.o \
 	${TESTDIR}/tests/transpuesta.o
 
 # C Compiler Flags
@@ -96,10 +94,6 @@ ${OBJECTDIR}/main.o: main.c
 .build-tests-conf: .build-tests-subprojects .build-conf ${TESTFILES}
 .build-tests-subprojects:
 
-${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/newcunittest.o ${OBJECTFILES:%.o=%_nomain.o}
-	${MKDIR} -p ${TESTDIR}/TestFiles
-	${LINK.c} -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS}   -lcunit 
-
 ${TESTDIR}/TestFiles/f2: ${TESTDIR}/tests/matriz_int.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.c} -o ${TESTDIR}/TestFiles/f2 $^ ${LDLIBSOPTIONS}   -lcunit 
@@ -111,12 +105,6 @@ ${TESTDIR}/TestFiles/f4: ${TESTDIR}/tests/multi.o ${OBJECTFILES:%.o=%_nomain.o}
 ${TESTDIR}/TestFiles/f3: ${TESTDIR}/tests/transpuesta.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.c} -o ${TESTDIR}/TestFiles/f3 $^ ${LDLIBSOPTIONS}   -lcunit 
-
-
-${TESTDIR}/tests/newcunittest.o: tests/newcunittest.c 
-	${MKDIR} -p ${TESTDIR}/tests
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/newcunittest.o tests/newcunittest.c
 
 
 ${TESTDIR}/tests/matriz_int.o: tests/matriz_int.c 
@@ -167,7 +155,6 @@ ${OBJECTDIR}/main_nomain.o: ${OBJECTDIR}/main.o main.c
 .test-conf:
 	@if [ "${TEST}" = "" ]; \
 	then  \
-	    ${TESTDIR}/TestFiles/f1 || true; \
 	    ${TESTDIR}/TestFiles/f2 || true; \
 	    ${TESTDIR}/TestFiles/f4 || true; \
 	    ${TESTDIR}/TestFiles/f3 || true; \
