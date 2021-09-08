@@ -15,7 +15,8 @@
 #define MATRIZ_P_H
 #define M1 130
 #define M2 60
-char **Leer_archivo(char *nombre);
+typedef char modificacion[10000];
+char *Leer_archivo(char *nombre);
 int *matrizNu(char *pa);
 int *trans(int *matriz,int filas,int columnas);
 const char* integrantes();

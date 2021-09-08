@@ -4,34 +4,66 @@
 #include "matriz_p.h"
 
 
-char **Leer_archivo(char *nombre) {
-    char line[M1][M2];
-    FILE *fpdo = fopen("Peliculas2.csv", "r");
-    int k = 0;
-    int no = 0;
+char *Leer_archivo(char *nombre) {
+    
+    FILE *fpdo = fopen(nombre, "r");
+   
     if (fpdo == NULL) {
         printf("No hay nada en %s\n", nombre);
-        return NULL;
+        return 0;
+        exit(1);
     }
+    int columnas=0;
+    int i=0;
+    char *m;
+    int cont=0;
+    int conto=0;
+    char calood[100];
+    char temp[10240];
+   
+    char aux;
+    while (!feof(fpdo)) {
+        fgets(calood, 100, fpdo);
+        cont++;
+    }
+    rewind(fpdo);
+    while (aux != '\n') {
+        aux = fgetc(fpdo);
 
 
-    while (fgets(line[k], M1, fpdo)) {
-        line[strlen(line[k]) - 1][strlen(line[k]) - 1] = "\0";
-        k++;
-    }
-    no = k;
-    printf(" %s tiene este contenido:\n", nombre);
-    for (k = 0; k < no; k++) {
-        printf("%s\n", line[k]);
-    }
-    printf("\n");
-    return line;
+        if (aux == 44) {
 
+            conto++;
+
+        }
+        
+    }
+    conto+=1;
+    rewind(fpdo);
+  
+    modificacion *maloo;
+    maloo=(modificacion*)malloc(cont*conto*sizeof(modificacion));
+  while (i<cont) {
+      columnas=0;
+      fgets(temp,10240,fpdo);
+       m=strtok(temp,",");
+      while (m!=NULL) {
+         
+           strcpy( *(maloo+i*conto+columnas),m);
+          m=strtok(NULL,",");
+          columnas++;
+        }
+
+      i++;
+    }
+      
+    puts("\n");
+ fclose(fpdo);
+ return maloo;
 
 }
   int *matrizNu(char *pa) {
-
-    
+      
     int cont = 0;
     int conto = 0;
     char temp[100];
@@ -92,7 +124,9 @@ char **Leer_archivo(char *nombre) {
     return p;
 
 }
+  
   int *trans(int *matriz,int filas,int columnas){
+      
       int *nuevaM=(int *)malloc(columnas*filas*sizeof(int));
     for(int i=0;i<filas;i++){
         for(int j=0;j<columnas;j++){
@@ -103,10 +137,13 @@ char **Leer_archivo(char *nombre) {
 }
 
 const char* integrantes() {
+  
     const char * integrante[]={"MF19026,RC19102"};
     return *integrante;
 }
+
 int *multi(int *matriz,int f1,int c1,int *matriz2,int f2,int c2){
+    
     int valor;
     int *result=(int*)malloc(f1*c2*sizeof(int));
     if(c1=f2){
