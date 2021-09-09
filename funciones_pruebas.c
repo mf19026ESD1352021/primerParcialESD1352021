@@ -137,7 +137,7 @@ char *Leer_archivo(char *nombre) {
 }
 
 const char* integrantes() {
-    const char * integrante[]={"MF19026,RC19102"};
+    const char * integrante[]={"#MF19026,#RC19102"};
     return *integrante;
 }
 
